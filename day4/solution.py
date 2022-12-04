@@ -40,7 +40,7 @@ def partTwoSolution():
 
 
 def main():
-    #print(partOneSolution())
+    print(partOneSolution())
     print(partTwoSolution())
     
 
