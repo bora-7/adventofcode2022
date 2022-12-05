@@ -5,11 +5,11 @@ def partOneSolution():
         for line in f:
             line = line.rstrip()
             input = line.split(',')
-            print(input)
+            # print(input)
             firstRange = input[0].split('-')
-            print(firstRange)
+            # print(firstRange)
             secondRange = input[1].split('-')
-            print(secondRange)
+            # print(secondRange)
             
             if (int(firstRange[0]) <= int(secondRange[0]) and int(firstRange[1]) >= int(secondRange[1])) or (int(secondRange[0]) <= int(firstRange[0]) and int(secondRange[1]) >= int(firstRange[1])):
                 count += 1
@@ -24,15 +24,15 @@ def partTwoSolution():
         for line in f:
             line = line.rstrip()
             input = line.split(',')
-            print(input)
+            # print(input)
             firstRange = input[0].split('-')
-            print(firstRange)
+            # print(firstRange)
             secondRange = input[1].split('-')
-            print(secondRange)
+            # print(secondRange)
             
-            if (int(firstRange[0]) <= int(secondRange[0]) and int(firstRange[1]) >= int(secondRange[1])) or (int(secondRange[0]) <= int(firstRange[0]) and int(secondRange[1]) >= int(firstRange[1])):
-                count += 1
-            elif (int(firstRange[0]) >= int(secondRange[0]) and int(firstRange[0]) <= int(secondRange[1])) or (int(secondRange[0]) >= int(firstRange[0]) and int(secondRange[0]) <= int(firstRange[1])):
+            # if (int(firstRange[0]) <= int(secondRange[0]) and int(firstRange[1]) >= int(secondRange[1])) or (int(secondRange[0]) <= int(firstRange[0]) and int(secondRange[1]) >= int(firstRange[1])):
+            #     count += 1
+            if (int(firstRange[0]) >= int(secondRange[0]) and int(firstRange[0]) <= int(secondRange[1])) or (int(secondRange[0]) >= int(firstRange[0]) and int(secondRange[0]) <= int(firstRange[1])):
                 count += 1
             
     return count
