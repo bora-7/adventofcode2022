@@ -63,11 +63,28 @@ def helper1(map, i, j):
         return True
     else:
         return False
-    
+
+def partTwoSolution():
+    map = []
+    with open('input.txt') as f:
+        for line in f:
+            line = line.rstrip()
+            input = list(line)
+            map.append(input)
+
+    numberOfColumns = len(map[0])
+    numberOfRows = len(map)
+
+
+    maxVisible = 0
+    for i in range(1, numberOfRows-1):
+        for j in range(1, numberOfColumns-1):
+            maxVisible = max(maxVisible, helper2(map, i, j))
+            
+    return maxVisible
 
 def helper2(map, i, j):
     number = map[i][j]
-    notVisible = 0
     
     # first go left:
     temp = j-1
@@ -75,7 +92,6 @@ def helper2(map, i, j):
     while (temp >= 0):
         if map[i][temp] >= number:
             visibleFromLeft += 1
-            notVisible += 1
             break
         temp -= 1
         visibleFromLeft += 1
@@ -86,7 +102,6 @@ def helper2(map, i, j):
     while (temp < len(map[0])):
         if map[i][temp] >= number:
             visibleFromRight += 1
-            notVisible += 1
             break
         temp += 1
         visibleFromRight += 1
@@ -97,7 +112,6 @@ def helper2(map, i, j):
     while (temp >= 0):
         if map[temp][j] >= number:
             visibleFromUp += 1
-            notVisible += 1
             break
         temp -= 1
         visibleFromUp += 1
@@ -108,36 +122,12 @@ def helper2(map, i, j):
     while (temp < len(map)):
         if map[temp][j] >= number:
             visibleFromDown += 1
-            notVisible += 1
             break
         temp += 1
         visibleFromDown += 1
 
     result = visibleFromDown * visibleFromLeft * visibleFromRight * visibleFromUp
     return result
-
-    
-
-
-def partTwoSolution():
-    map = []
-    with open('input.txt') as f:
-        for line in f:
-            line = line.rstrip()
-            input = list(line)
-            #print(input)
-            map.append(input)
-    numberOfColumns = len(map[0])
-    numberOfRows = len(map)
-
-    #print(result)
-    maxVisible = 0
-    for i in range(1, numberOfRows-1):
-        for j in range(1, numberOfColumns-1):
-            maxVisible = max(maxVisible, helper2(map, i, j))
-            
-    return maxVisible
-
 
 def main():
     print(partOneSolution())
