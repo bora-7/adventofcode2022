@@ -7,7 +7,6 @@ def partOneSolution():
     totalSum = 0
     with open('input.txt') as f:
         for line in f:
-            print(x)
             line = line.rstrip()
             input = line.split(' ')
             if (cycleCount - 20) % 40 == 0:
@@ -69,7 +68,7 @@ def partTwoSolution():
 
 
 def main():
-    #print(partOneSolution())
+    print(partOneSolution())
     print(partTwoSolution())
     
 
