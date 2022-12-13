@@ -151,7 +151,8 @@ def partTwoSolution():
     modulo = 1
     for monkey in monkeyDictionary:
         modulo *= int(monkeyDictionary[monkey].divideByTest)
-    for _ in range(10000):
+    for i in range(10000):
+        print(i)
         for monkeyNumber in monkeyDictionary:
             operation = monkeyDictionary[monkeyNumber].operation
             divideBy = int(monkeyDictionary[monkeyNumber].divideByTest)
