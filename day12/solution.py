@@ -29,7 +29,7 @@ def partOneSolution():
     def neighbours(i, j):
         result = []
         for di, dj in dirs:
-            newI = i+di
+            newI = i + di
             newJ = j + dj
             
             if not (newI >= 0 and newJ >= 0 and newI < rowsLength and newJ < colLength):
@@ -53,8 +53,7 @@ def partOneSolution():
         visited[i][j] = True
 
         if i == tx and j == ty:
-
-            return(steps)
+            return steps
         
         for ii, jj in neighbours(i, j):
             heapq.heappush(heap, (steps+1, ii, jj))
@@ -100,7 +99,6 @@ def partTwoSolution():
     heap = [(0, newStartX, newStartY)]
 
     while True:
-        #print(len(heap))
         steps, i, j = heapq.heappop(heap)
 
         if visited[i][j]:
@@ -108,14 +106,13 @@ def partTwoSolution():
         visited[i][j] = True
 
         if heights[i][j] == 'a':
-
-            return(steps)
-        
+            return steps
+    
         for ii, jj in neighbours(i, j):
             heapq.heappush(heap, (steps+1, ii, jj))
+
 def main():
-    #print(partOneSolution())
+    print(partOneSolution())
     print(partTwoSolution())
-    
 
 main()
